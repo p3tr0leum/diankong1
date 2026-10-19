@@ -1,0 +1,29 @@
+/*********************************************************************
+* SEGGER Ozone project for GM6020 sine tracking demo
+*
+* Board   : RoboMaster C board (STM32F407IGH6)
+* Probe   : J-Link, SWD
+* ELF     : build/Debug/GM6020_SineTracker.elf
+*
+* Open this file with Ozone, select the J-Link in the connection dialog,
+* then Debug -> Start.  The ELF contains the debug symbols.
+*********************************************************************/
+void OnProjectLoad(void)
+{
+    Project.SetDevice("STM32F407IG");
+    Project.SetTargetIF("SWD");
+    Project.SetTIFSpeed("4000");
+
+    /* C board / STM32F407IG peripheral register view. */
+    Project.AddSvdFile("$(InstallDir)/Config/Peripherals/STM32F407IG.svd");
+
+    /* Relative to this .jdebug file, so the project is portable. */
+    File.Open("$(ProjectDir)/../build/Debug/GM6020_SineTracker.elf");
+}
+
+void AfterTargetDownload(void)
+{
+    /* Reset and run after download. */
+    Target.Reset();
+    Target.Go();
+}

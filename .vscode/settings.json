@@ -1,0 +1,17 @@
+{
+    "cmake.useCMakePresets": "always",
+    "cmake.configureOnOpen": true,
+    "cmake.buildDirectory": "${workspaceFolder}/build/${presetName}",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.cStandard": "gnu11",
+    "C_Cpp.default.intelliSenseMode": "gcc-arm",
+    "files.associations": {
+        "*.h": "c",
+        "*.jdebug": "javascript"
+    },
+    "search.exclude": {
+        "build/**": true,
+        "Drivers/**": true,
+        ".mxhome/**": true
+    }
+}

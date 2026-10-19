@@ -1,0 +1,10 @@
+si SWD
+speed 4000
+device STM32F407IG
+connect
+r
+h
+loadfile build/Debug/GM6020_SineTracker.elf
+r
+g
+qc
